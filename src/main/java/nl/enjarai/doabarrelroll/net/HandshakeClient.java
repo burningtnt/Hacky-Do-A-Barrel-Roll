@@ -27,7 +27,7 @@ public class HandshakeClient<P extends ConfigResponseC2SPacket> {
      * returns an empty optional in any other case.
      */
     public Optional<LimitedModConfigServer> getConfig() {
-        return Optional.ofNullable(serverConfig);
+        return Optional.of(java.util.Objects.requireNonNullElse(serverConfig, LimitedModConfigServer.OPERATOR));
     }
 
     public Optional<ModConfigServer> getFullConfig() {
